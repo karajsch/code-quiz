@@ -33,10 +33,9 @@ let array_of_questions = [
   },
 ];
 
-//console.log(array_of_questions[1].question);
-//console.log(array_of_questions[2].incorrectAnswers[0]);
-
+// Starting from first question
 let current_question = 0;
+
 var score = 0;
 
 function start_application() {
@@ -50,8 +49,9 @@ function evaluate_answer(button_clicked) {
     array_of_questions[current_question].correctAnswer
   ) {
     alert("Correct!");
-    score++;
+
     // increase score by 1, go to next question
+    score++;
   } else {
     alert("Incorrect");
     // decrease score by 1, go to next question
@@ -79,7 +79,7 @@ function prompt() {
   for (var i = 0; i < current.answerChoices.length; i++) {
     let question = document.createElement("button");
     question.classList.add("btn");
-    question.classList.add("btn-dark");
+    question.classList.add("btn-primary");
     question.innerHTML = current.answerChoices[i];
     question.addEventListener("click", evaluate_answer);
     document.getElementById("questions").append(question);
@@ -89,6 +89,21 @@ function prompt() {
 function modify_score() {
   return true;
 }
+
+// timer?!
+
+var count = 10;
+document.getElementById("count").innerHTML = count;
+var interval = setInterval(function () {
+  document.getElementById("count").innerHTML = count;
+  count--;
+  if (count === 0) {
+    clearInterval(interval);
+    document.getElementById("count").innerHTML = "Done";
+    // or...
+    alert("You're out of time!");
+  }
+}, 1000);
 
 document.getElementById("start").addEventListener("click", (e) => {
   console.log(e);
