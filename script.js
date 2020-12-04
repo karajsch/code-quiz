@@ -52,21 +52,10 @@ function evaluate_answer(button_clicked) {
     alert("Correct!");
     score++;
     // increase score by 1, go to next question
-    //this is supposed to hide the previous answers from the previous question but it doesn't work
-    var current = document.querySelectorAll("btn", "btn-dark");
-    elem.style.display = "none";
   } else {
     alert("Incorrect");
     // decrease score by 1, go to next question
   }
-
-  //this is supposed to hide the previous answers from the previous question but it doesn't work :(
-  var current = document.querySelectorAll(array_of_questions.answerChoices);
-  elem.style.display = "none";
-
-  //a different way, also doesn't work... :(
-  var elem = document.getElementById("btn");
-  elem.remove();
 
   // this lets the script advance to the next question
   current_question++;
@@ -81,6 +70,10 @@ function prompt() {
 
   // GO through a collection of questions
   question.innerHTML = current.question;
+
+  const container = document.getElementById("questions");
+
+  container.innerHTML = ""; // now we've removed everything from the questions section!
 
   // when i = 0, first question is shown
   for (var i = 0; i < current.answerChoices.length; i++) {
