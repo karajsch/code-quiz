@@ -37,6 +37,7 @@ let array_of_questions = [
 //console.log(array_of_questions[2].incorrectAnswers[0]);
 
 let current_question = 0;
+var score = 0;
 
 function start_application() {
   prompt();
@@ -49,9 +50,19 @@ function evaluate_answer(button_clicked) {
     array_of_questions[current_question].correctAnswer
   ) {
     alert("Correct!");
+    score++;
+    // increase score by 1, go to next question
   } else {
     alert("Incorrect");
+    // decrease score by 1, go to next question
   }
+  current_question++;
+  prompt();
+}
+
+function removeAnswers() {
+  var answerChoices = document.getElementById(answerChoices);
+  answerChoices.remove();
 }
 
 function prompt() {

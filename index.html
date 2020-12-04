@@ -12,41 +12,42 @@
     />
     <link rel="stylesheet" href="style.css" type="text/css" />
   </head>
-  <body>
-    <header>
-      <nav
-        class="navbar navbar-expand-lg navbar-light"
-        style="background-color: #43c782"
-      >
-        <h1>Code Quiz</h1>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"
-                >Home <span class="sr-only">(current)</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Scoreboard</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-    <p></p>
 
-    <section class="container bg-light p-4 col-12">
+  <header>
+    <!--Nav bar goes here-->
+    <nav
+      class="navbar navbar-expand-lg navbar-light text-light"
+      style="background-image: linear-gradient(90deg, #4fcdff, #e4bcff)"
+    >
+      <h1>Code Quiz</h1>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Scoreboard</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <p></p>
+  <body>
+    <section class="container text-dark p-2 col-12">
       <!-- Start button goes here -->
       <button
         id="start"
@@ -56,12 +57,13 @@
         aria-pressed="true"
         onClick="this.style.visibility= 'hidden';"
       >
-        Start!
+        <h1>Start!</h1>
       </button>
       <!-- Question 1 goes here -->
       <h2 id="title"></h2>
-
-      <div id="questions"></div>
+      <section id="questions"></section>
+      <button class="btn btn-dark" onclick="removeAnswers()"></button>
+      <p></p>
     </section>
   </body>
   <script src="script.js"></script>
