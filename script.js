@@ -61,8 +61,12 @@ function evaluate_answer(button_clicked) {
   }
 
   //this is supposed to hide the previous answers from the previous question but it doesn't work :(
-  var current.answerChoices = document.querySelectorAll(array_of_questions.answerChoices);
+  var current = document.querySelectorAll(array_of_questions.answerChoices);
   elem.style.display = "none";
+
+  //a different way, also doesn't work... :(
+  var elem = document.getElementById("btn");
+  elem.remove();
 
   // this lets the script advance to the next question
   current_question++;
