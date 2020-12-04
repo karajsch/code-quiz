@@ -52,17 +52,23 @@ function evaluate_answer(button_clicked) {
     alert("Correct!");
     score++;
     // increase score by 1, go to next question
+    //this is supposed to hide the previous answers from the previous question but it doesn't work
+    var current = document.querySelectorAll("btn", "btn-dark");
+    elem.style.display = "none";
   } else {
     alert("Incorrect");
     // decrease score by 1, go to next question
   }
-  current_question++;
-  prompt();
-}
 
-function removeAnswers() {
-  var answerChoices = document.getElementById(answerChoices);
-  answerChoices.remove();
+  //this is supposed to hide the previous answers from the previous question but it doesn't work :(
+  var current.answerChoices = document.querySelectorAll(array_of_questions.answerChoices);
+  elem.style.display = "none";
+
+  // this lets the script advance to the next question
+  current_question++;
+
+  //this runs the prompt again
+  prompt();
 }
 
 function prompt() {
