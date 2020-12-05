@@ -33,11 +33,13 @@ let array_of_questions = [
   },
 ];
 
-// Starting from first question
+// Starting from first question in array_of_questions
 let current_question = 0;
 
+// Starting from score of 0
 var score = 0;
 
+// This is what starts the application
 function start_application() {
   prompt();
 }
@@ -49,19 +51,24 @@ function evaluate_answer(button_clicked) {
     array_of_questions[current_question].correctAnswer
   ) {
     alert("Correct!");
-
-    // increase score by 1, go to next question
     score++;
   } else {
-    alert("Incorrect");
-    // decrease score by 1, go to next question
+    alert(
+      "Incorrect - 2 seconds will be substracted and a point will deducted."
+    );
+    count = count - 2;
+    score--;
   }
 
   // this lets the script advance to the next question
   current_question++;
 
-  //this runs the prompt again
-  prompt();
+  //
+  if (current_question < array_of_questions.length) {
+    prompt();
+  } else {
+    document.getElementById("score").innerHTML = "Your score is " + score + "!";
+  }
 }
 
 function prompt() {
@@ -76,6 +83,7 @@ function prompt() {
   container.innerHTML = ""; // now we've removed everything from the questions section!
 
   // when i = 0, first question is shown
+
   for (var i = 0; i < current.answerChoices.length; i++) {
     let question = document.createElement("button");
     question.classList.add("btn");
@@ -86,26 +94,22 @@ function prompt() {
   }
 }
 
-function modify_score() {
-  return true;
-}
-
-// timer?!
-
-var count = 10;
-document.getElementById("count").innerHTML = count;
-var interval = setInterval(function () {
-  document.getElementById("count").innerHTML = count;
-  count--;
-  if (count === 0) {
-    clearInterval(interval);
-    document.getElementById("count").innerHTML = "Done";
-    // or...
-    alert("You're out of time!");
-  }
-}, 1000);
-
 document.getElementById("start").addEventListener("click", (e) => {
   console.log(e);
   start_application();
+  //when the timer reaches 0, an alert is shown
+  var interval = setInterval(function () {
+    document.getElementById("count").innerHTML = count;
+    count--;
+    if (count === 0) {
+      clearInterval(interval);
+      document.getElementById("count").innerHTML = "Time's Up!";
+    }
+  }, 1000);
 });
+
+// timer
+document.getElementById("count").innerHTML = count;
+
+// timer starts counting down at 20 seconds
+var count = 30;
