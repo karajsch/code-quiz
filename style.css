@@ -25,7 +25,7 @@ h2 {
 
 .navbar {
   background-image: linear-gradient(90deg, #4fcdff, #e4bcff);
-  border-style: solid;
+  border-style: dashed;
   border-width: 1px;
   border-color: #666666;
   border-bottom: 0px;
@@ -37,12 +37,13 @@ h2 {
 }
 .container {
   background-color: rgba(255, 255, 255, 0.3);
-  border-style: solid;
+  border-style: dashed;
   border-width: 1px;
   border-color: #666666;
 }
 
 .btn {
+  background-image: radial-gradient(circle, #56c0fd, #3384fd);
   display: flex;
   font-size: 10pt;
   justify-content: space-around;
@@ -54,9 +55,9 @@ h2 {
 }
 
 .btn:hover {
-  background-image: radial-gradient(circle, white, #ffaff2);
-  color: black;
-  border-style: solid;
+  background-image: radial-gradient(circle, #23ffa3, #3384fd);
+  color: white;
+  border-style: dashed;
   border-width: 1px;
   border-color: #666666;
 }
@@ -65,4 +66,9 @@ h2 {
   width: 200px;
   height: 100px;
   margin: 0 auto;
+}
+
+#score {
+  text-align: center;
+  font-size: 18pt;
 }

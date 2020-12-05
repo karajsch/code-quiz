@@ -46,6 +46,7 @@ function start_application() {
 
 function evaluate_answer(button_clicked) {
   // Take the answer that the user gave me and see if it matches the correct answer of the current question.
+  alert("here");
   if (
     button_clicked.target.innerHTML ==
     array_of_questions[current_question].correctAnswer
@@ -54,7 +55,7 @@ function evaluate_answer(button_clicked) {
     score++;
   } else {
     alert(
-      "Incorrect - 2 seconds will be substracted and a point will deducted."
+      "Incorrect - 2 seconds will be subtracted and a point will deducted."
     );
     count = count - 2;
     score--;
@@ -72,6 +73,7 @@ function evaluate_answer(button_clicked) {
 }
 
 function prompt() {
+  alert("in prompt");
   var question = document.getElementById("title");
   var current = array_of_questions[current_question];
 
